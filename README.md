@@ -116,14 +116,17 @@ Parameter tuning was attempted on several algorithms. I noted the changed of eac
 ## Summary of Results
 
 Algorithms	Accuracy	Precision	Recall
-Decision Tree	0.84347	0.41967	0.45450
-Gassian NB	0.83613	0.36639	0.31400
-Random Forest – tune 1	0.86007	0.43629	0.16950
-Random Forest – tune 2	0.85868	0.42772	0.17900
-Random Forest – tune 3	0.84993	0.39190	0.22750
-Ada Boost – tune 1	0.85773	0.44029	0.24700
-Ada Boost – tune 2	0.85527	0.42276	0.23400
-Ada Boost – tune 3	0.85687	0.44885	0.32250
+
+Decision Tree	0.84347		0.41967		0.45450
+Gassian NB	0.83613		0.36639		0.31400
+
+Random Forest 	0.86007		0.43629		0.16950
+Random Forest 	0.85868		0.42772		0.17900
+Random Forest 	0.84993		0.39190		0.22750
+
+Ada Boost 	0.85773		0.44029		0.24700
+Ada Boost 	0.85527		0.42276		0.23400
+Ada Boost 	0.85687		0.44885		0.32250
 
 ## Conclusion
 
