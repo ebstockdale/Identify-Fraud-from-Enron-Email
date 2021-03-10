@@ -1,4 +1,5 @@
 
+
 # Introduction
 
 The Enron scandal was one of the largest corporate fraud cases of all time. Enron went from one of the largest Fortune 500 companies to bankruptcy seemingly overnight. Massive fraud was uncovered and years later, a significant amount of confidential information entered the public domain in the form of the now famous Enron corpus.
@@ -24,13 +25,10 @@ The Enron dataset contains 146 Enron employees to investigate. Each sample in th
 
 In my analysis, two outliers were discovered.
 
--Total: Using a scatter plot matrix visualization, I found that Total represents the sum of all salaries and was skewing the data quite a bit as shown below.
+-Total: Using a scatter plot matrix visualization, I found that Total represents the sum of all salaries and was skewing the data quite a bit.
 
 
-
-After removing this outlier, the plot looks much better.
-
-
+After removing this outlier, things look much better.
 
 
 -The Travel Agency in the Park: This also appears to be another outlier and could possibly be a data entry error.
@@ -132,3 +130,8 @@ Ada Boost 	Accuracy 0.85687 Precision 0.44885 Recall 0.32250
 
 My two main evaluation metrics for this project were precision and recall. Using those metrics, I found that Decision Tree with precision of 0.41967 and recall of 0.45450 to be the best choice. 
 
+## References
+- Enron scandal, Wikipedia - https://en.wikipedia.org/wiki/Enron_scandal
+- Feature normalization - http://stats.stackexchange.com/questions/77350/perform-feature-normalization-before-or-within-model-validation
+- Test set vs validation set?, Cross Validated - http://stats.stackexchange.com/questions/19048/what-is-the-difference-between-test-set-and-validation-set
+- Sci-kit and Regression Summary, Stack Overflow - http://stackoverflow.com/questions/26319259/sci-kit-and-regression-summary 
