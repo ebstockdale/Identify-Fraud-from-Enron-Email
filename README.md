@@ -116,18 +116,9 @@ Parameter tuning was attempted on several algorithms. I noted the changed of eac
 
 ## Summary of Results
 
-Algorithms	
 
-Decision Tree	Accuracy 0.84347 Precision 0.41967 Recall 0.45450
-Gassian NB	Accuracy 0.83613 Precision 0.36639 Recall 0.31400
+![Figure 3](https://github.com/ebstockdale/Identify-Fraud-from-Enron-Email/blob/main/Summary.png)
 
-Random Forest 	Accuracy 0.86007 Precision 0.43629 Recall 0.16950
-Random Forest 	Accuracy 0.85868 Precision 0.42772 Recall 0.17900
-Random Forest 	Accuracy 0.84993 Precision 0.39190 Recall 0.22750
-
-Ada Boost 	Accuracy 0.85773 Precision 0.44029 Recall 0.24700
-Ada Boost 	Accuracy 0.85527 Precision 0.42276 Recall 0.23400
-Ada Boost 	Accuracy 0.85687 Precision 0.44885 Recall 0.32250
 
 ## Conclusion
 
