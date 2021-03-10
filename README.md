@@ -115,19 +115,20 @@ Parameter tuning was attempted on several algorithms. I noted the changed of eac
 
 ## Summary of Results
 
-Algorithms	Accuracy	Precision	Recall
+Algorithms	
 
-Decision Tree	0.84347		0.41967		0.45450
-Gassian NB	0.83613		0.36639		0.31400
+Decision Tree	Accuracy 0.84347 Precision 0.41967 Recall 0.45450
+Gassian NB	Accuracy 0.83613 Precision 0.36639 Recall 0.31400
 
-Random Forest 	0.86007		0.43629		0.16950
-Random Forest 	0.85868		0.42772		0.17900
-Random Forest 	0.84993		0.39190		0.22750
+Random Forest 	Accuracy 0.86007 Precision 0.43629 Recall 0.16950
+Random Forest 	Accuracy 0.85868 Precision 0.42772 Recall 0.17900
+Random Forest 	Accuracy 0.84993 Precision 0.39190 Recall 0.22750
 
-Ada Boost 	0.85773		0.44029		0.24700
-Ada Boost 	0.85527		0.42276		0.23400
-Ada Boost 	0.85687		0.44885		0.32250
+Ada Boost 	Accuracy 0.85773 Precision 0.44029 Recall 0.24700
+Ada Boost 	Accuracy 0.85527 Precision 0.42276 Recall 0.23400
+Ada Boost 	Accuracy 0.85687 Precision 0.44885 Recall 0.32250
 
 ## Conclusion
 
 My two main evaluation metrics for this project were precision and recall. Using those metrics, I found that Decision Tree with precision of 0.41967 and recall of 0.45450 to be the best choice. 
+
