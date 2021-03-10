@@ -93,7 +93,7 @@ for feature in features_list:
     plt.show()
     print name
     print maxim
-
+    print "\n _________________ \n"
 
 
 for key in data_dict.keys():
@@ -110,32 +110,30 @@ features_list.remove('loan_advances')
 
 
 
-# Creating features
 for key in data_dict.keys():
     try:
-        data_dict[key]['ratio_from_person_to_poi'] = float(data_dict[key]['from_person_to_poi']
+        data_dict[key]['ratio_from_person_to_poi'] = float(data_dict[key]['from_this_person_to_poi']
                                                                    ) / data_dict[key]['from_messages']
     except:
         data_dict[key]['ratio_from_person_to_poi'] = 'NaN'
 
     try:
-        data_dict[key]['ratio_from_poi_to_person'] = float(data_dict[key]['from_poi_to_person']
+        data_dict[key]['ratio_from_poi_to_person'] = float(data_dict[key]['from_poi_to_this_person']
                                                                    ) / data_dict[key]['to_messages']
     except:
         data_dict[key]['ratio_from_poi_to_person'] = 'NaN'
 
 
 
-
-# Removing features
 features_list.append('ratio_from_person_to_poi')
 features_list.append('ratio_from_poi_to_person')
 
-
-features_list.remove('from_messages')
-features_list.remove('to_messages')
 features_list.remove('from_this_person_to_poi')
 features_list.remove('from_poi_to_this_person')
+features_list.remove('from_messages')
+features_list.remove('to_messages')
+
+
 
 pprint.pprint(features_list)
 
@@ -161,10 +159,9 @@ print len(features[142])
 print labels[0]
 
 
-# Feature Scaling
+
 from sklearn.preprocessing import MinMaxScaler
 
-# Feature Selection
 scaler = MinMaxScaler()
 features = scaler.fit_transform(features)
 
