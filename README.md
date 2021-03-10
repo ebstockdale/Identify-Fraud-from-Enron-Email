@@ -27,8 +27,11 @@ In my analysis, two outliers were discovered.
 
 -Total: Using a scatter plot matrix visualization, I found that Total represents the sum of all salaries and was skewing the data quite a bit.
 
+![Figure 1](https://github.com/ebstockdale/Identify-Fraud-from-Enron-Email/blob/main/salary%20with%20Total.png)
 
 After removing this outlier, things look much better.
+
+![Figure 2](https://github.com/alexbra/ud-nd-project4/blob/master/img/figure_2.png)
 
 
 -The Travel Agency in the Park: This also appears to be another outlier and could possibly be a data entry error.
