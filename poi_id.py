@@ -64,7 +64,7 @@ for feature in features_list:
     plt.show()
     print name
     print maxim
-    print "\n ------------------------------------------------------------------------------------ \n"
+    print "\n ____________________ \n"
 
 
 data_dict.pop('TOTAL')
