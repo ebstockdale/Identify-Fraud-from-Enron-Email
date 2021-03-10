@@ -1,5 +1,4 @@
 
-
 # !/usr/bin/python
 
 import sys
@@ -19,6 +18,8 @@ for key in data_dict.keys():
         print value
     break
 
+
+
 ### Task 1: Select what features you'll use.
 ### features_list is a list of strings, each of which is a feature name.
 ### The first feature must be "poi".
@@ -35,9 +36,12 @@ import pprint
 pprint.pprint(features_list)
 # You will need to use more features
 
-#Removing features that are not required
+
+
+# Removing features that are not required
 features_list.remove('email_address')
 pprint.pprint(features_list)
+
 
 # Finding total number of NaN fields in each feature
 for feature in features_list:
@@ -46,6 +50,9 @@ for feature in features_list:
         if data_dict[key][feature] == 'NaN':
             cnt += 1
     print feature + " -> " + str(cnt)
+
+
+
 
 import matplotlib.pyplot as plt
 
@@ -64,10 +71,12 @@ for feature in features_list:
     plt.show()
     print name
     print maxim
-    print "\n ____________________ \n"
+    print "\n _________________ \n"
+
 
 
 data_dict.pop('TOTAL')
+
 
 
 for feature in features_list:
@@ -91,12 +100,14 @@ for key in data_dict.keys():
     print key
 
 
+
 data_dict.pop('THE TRAVEL AGENCY IN THE PARK')
 
-# Removing more features with too many NaN values
-features_list.remove('loan_advances')
+
 features_list.remove('restricted_stock_deferred')
 features_list.remove('director_fees')
+features_list.remove('loan_advances')
+
 
 
 # Creating features
@@ -114,16 +125,20 @@ for key in data_dict.keys():
         data_dict[key]['ratio_from_poi_to_person'] = 'NaN'
 
 
+
+
+# Removing features
 features_list.append('ratio_from_person_to_poi')
 features_list.append('ratio_from_poi_to_person')
 
-# Removing features
+
 features_list.remove('from_messages')
 features_list.remove('to_messages')
+features_list.remove('from_this_person_to_poi')
 features_list.remove('from_poi_to_this_person')
 
-
 pprint.pprint(features_list)
+
 
 
 ### Task 3: Create new feature(s)
@@ -135,36 +150,42 @@ data = featureFormat(my_dataset, features_list, sort_keys=True)
 labels, features = targetFeatureSplit(data)
 
 
+
 print len(features)
 print len(labels)
 
 
+
 print len(features[0])
+print len(features[142])
 print labels[0]
+
 
 # Feature Scaling
 from sklearn.preprocessing import MinMaxScaler
 
+# Feature Selection
 scaler = MinMaxScaler()
 features = scaler.fit_transform(features)
 
-# Feature Selection
+
+
 from sklearn.feature_selection import SelectKBest
 
-
-selection = SelectKBest(k=9)
+selection = SelectKBest(k=10)
 features = selection.fit_transform(features, labels)
 features_selected = selection.get_support(indices=True)
 print selection.scores_
 
 
-new_featurelist = ['poi']
+new_flist = ['poi']
 
 for index in features_selected:
-    new_featurelist.append(features_list[index + 1])
+    new_flist.append(features_list[index + 1])
 
-features_list = new_featurelist
+features_list = new_flist
 print features_list
+
 
 
 ### Task 5: Tune your classifier to achieve better than .3 precision and recall
@@ -180,6 +201,7 @@ from sklearn.cross_validation import train_test_split
 features_train, features_test, labels_train, labels_test = train_test_split(features, labels, test_size=0.3,
                                                                             random_state=42)
 
+
 ### Task 4: Try a varity of classifiers
 ### Please name your classifier clf for easy export below.
 ### Note that if you want to do PCA or other multi-stage operations,
@@ -193,14 +215,15 @@ from sklearn.svm import SVC
 from sklearn.ensemble import AdaBoostClassifier
 from sklearn.ensemble import RandomForestClassifier
 
-#clf = RandomForestClassifier(n_estimators=5, max_depth=10)
-#clf = AdaBoostClassifier(algorithm='SAMME', n_estimators=5)
+# clf = RandomForestClassifier(n_estimators=5, max_depth=10)
+# clf = AdaBoostClassifier(algorithm='SAMME', n_estimators=5)
 clf = DecisionTreeClassifier(criterion='entropy', max_depth=2)
-#clf = GaussianNB()
-
+# clf = GaussianNB()
+# clf = SVC(kernel='rbf', C=10)
 
 clf.fit(features_train, labels_train)
 pred = clf.predict(features_test)
+
 
 from sklearn import metrics
 
@@ -208,11 +231,11 @@ print metrics.recall_score(labels_test, pred)
 print metrics.accuracy_score(pred, labels_test)
 print metrics.precision_score(labels_test, pred)
 
+# In[33]:
+
 ### Task 6: Dump your classifier, dataset, and features_list so anyone can
 ### check your results. You do not need to change anything below, but make sure
 ### that the version of poi_id.py that you submit can be run on its own and
 ### generates the necessary .pkl files for validating your results.
 
 dump_classifier_and_data(clf, my_dataset, features_list)
-
-
