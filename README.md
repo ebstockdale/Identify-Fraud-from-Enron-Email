@@ -54,6 +54,8 @@ from_poi_to_this_person
 
 As some features do not use the same ranges, the min_max_scaler from scikit-learn was used to normalize the range of features in the dataset. 
 
+
+
 ## Feature Selection
 
 Feature selection is a technique where we choose those features in our data that contribute most to the target variable. 
@@ -77,16 +79,15 @@ After attemping several k values, I found that k=10 yielded the best results.
 ![Figure 4](https://github.com/ebstockdale/Identify-Fraud-from-Enron-Email/blob/main/SelectK.png)
 
 
-## Splitting the Data
+## Data Validation
 
-Data was split into training and testing datasets.
+Data was split into training and testing datasets using scikit-learn's train_test_split(). 
 
- 
+One of the key aspects of machine learning is validation. When predictive performance is evaluation, it is essential that the process be unbiased. Using train_test_split() from the data science library scikit-learn, a dataset can be spliot into subsets that minimize the potential for bias in an evaluation and validation process.
 
 ## Evaluation of classifier algorithms
 
 Classifiers chosen for evaluation were Random Forest, Decision Tree, Ada Boost and Gausian NB. Random Forest and Ada Boost were selected for parameter tuning. 
-
 
 
 #### Random Forest
