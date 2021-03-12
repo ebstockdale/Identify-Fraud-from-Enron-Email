@@ -71,7 +71,7 @@ deferred_income
 long_term_incentive
 ratio_from_person_to_poi
 
-I attempted to use GridSearchCV but ran into issues. After atemping several k values, I found that k=10 yielded the best results. 
+After attemping several k values, I found that k=10 yielded the best results. 
 
 
 ![Figure 4](https://github.com/ebstockdale/Identify-Fraud-from-Enron-Email/blob/main/SelectK.png)
@@ -86,8 +86,6 @@ Data was split into training and testing datasets.
 ## Evaluation of classifier algorithms
 
 Classifiers chosen for evaluation were Random Forest, Decision Tree, Ada Boost and Gausian NB. Random Forest and Ada Boost were selected for parameter tuning. 
-
-
 
 
 
@@ -123,12 +121,12 @@ Parameter tuning was attempted on several algorithms. I noted the changed of eac
 ## Summary of Results
 
 
-![Figure 3](https://github.com/ebstockdale/Identify-Fraud-from-Enron-Email/blob/main/Summary.png)
+![Figure 3](https://github.com/ebstockdale/Identify-Fraud-from-Enron-Email/blob/main/p%20tuning%20table.png)
 
 
 ## Conclusion
 
-My two main evaluation metrics for this project were precision and recall. Using those metrics, I found that Decision Tree with precision of 0.41967 and recall of 0.45450 to be the best choice. 
+My two main evaluation metrics for this project were precision and recall. Using those metrics, I found that Ada Boost using my first tuning attempt yeilded a precision of 0.042701 and recall of 0.56750 and was the best choice. 
 
 In machine learning, precision is the fraction of relevant instances among the retrieved instances, while recall is the fraction of relevant instances that were retrieved. 
 
@@ -138,3 +136,4 @@ In machine learning, precision is the fraction of relevant instances among the r
 - Feature normalization - http://stats.stackexchange.com/questions/77350/perform-feature-normalization-before-or-within-model-validation
 - Test set vs validation set?, Cross Validated - http://stats.stackexchange.com/questions/19048/what-is-the-difference-between-test-set-and-validation-set
 - Sci-kit and Regression Summary, Stack Overflow - http://stackoverflow.com/questions/26319259/sci-kit-and-regression-summary 
+- Precision and recall -https://en.wikipedia.org/wiki/Precision_and_recall#:~:text=In%20pattern%20recognition%2C%20information%20retrieval,relevant%20instances%20that%20were%20retrieved.
