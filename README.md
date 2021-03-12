@@ -101,12 +101,11 @@ parameter tune 3 (best)
 
 #### Ada Boost
 
-parameter tune 1
+parameter tune 1 (best)
 
 parameter tune 2
 
-
-parameter tune 3 (best)
+parameter tune 3 
 
 #### Gassian NB
 
@@ -122,7 +121,6 @@ Parameter tuning was attempted on several algorithms. I noted the changed of eac
 
 
 ![Figure 3](https://github.com/ebstockdale/Identify-Fraud-from-Enron-Email/blob/main/p%20tuning%20table.png)
-
 
 ## Conclusion
 
