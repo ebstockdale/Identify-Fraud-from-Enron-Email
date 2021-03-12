@@ -1,5 +1,3 @@
-
-
 # Introduction
 
 The Enron scandal was one of the largest corporate fraud cases of all time. Enron went from one of the largest Fortune 500 companies to bankruptcy seemingly overnight. Massive fraud was uncovered and years later, a significant amount of confidential information entered the public domain in the form of the now famous Enron corpus.
@@ -58,7 +56,9 @@ As some features do not use the same ranges, the min_max_scaler from scikit-lear
 
 ## Feature Selection
 
-SelectKBest was used to select the top 10 best features shown below. 
+Feature selection is a technique where we choose those features in our data that contribute most to the target variable. 
+
+SelectKBest was used to select the best features shown below. 
 
 poi
 salary
@@ -66,10 +66,16 @@ total_payments
 exercised_stock_options
 bonus
 restricted_stock
-shared_receipt_with_poi
 total_stock_value
 deferred_income
 long_term_incentive
+ratio_from_person_to_poi
+
+I attempted to use GridSearchCV but ran into issues. After atemping several k values, I found that k=10 yielded the best results. 
+
+
+![Figure 4](https://github.com/ebstockdale/Identify-Fraud-from-Enron-Email/blob/main/SelectK.png)
+
 
 ## Splitting the Data
 
@@ -124,7 +130,10 @@ Parameter tuning was attempted on several algorithms. I noted the changed of eac
 
 My two main evaluation metrics for this project were precision and recall. Using those metrics, I found that Decision Tree with precision of 0.41967 and recall of 0.45450 to be the best choice. 
 
+In machine learning, precision is the fraction of relevant instances among the retrieved instances, while recall is the fraction of relevant instances that were retrieved. 
+
 ## References
+
 - Enron scandal, Wikipedia - https://en.wikipedia.org/wiki/Enron_scandal
 - Feature normalization - http://stats.stackexchange.com/questions/77350/perform-feature-normalization-before-or-within-model-validation
 - Test set vs validation set?, Cross Validated - http://stats.stackexchange.com/questions/19048/what-is-the-difference-between-test-set-and-validation-set
