@@ -1,9 +1,10 @@
 
+
 # !/usr/bin/python
 
 import sys
 import pickle
-
+import numpy as np
 sys.path.append("../tools/")
 
 from feature_format import featureFormat, targetFeatureSplit
@@ -68,7 +69,7 @@ for feature in features_list:
             name = key
         plt.scatter(point, cnt)
     plt.xlabel(feature)
-    plt.show()
+    #plt.show()
     print name
     print maxim
     print "\n _________________ \n"
@@ -90,7 +91,7 @@ for feature in features_list:
             name = key
         plt.scatter(point, cnt)
     plt.xlabel(feature)
-    plt.show()
+    #plt.show()
     print name
     print maxim
     print "\n _________________ \n"
@@ -104,12 +105,13 @@ for key in data_dict.keys():
 data_dict.pop('THE TRAVEL AGENCY IN THE PARK')
 
 
+
 features_list.remove('restricted_stock_deferred')
 features_list.remove('director_fees')
 features_list.remove('loan_advances')
 
 
-
+# Creating features
 for key in data_dict.keys():
     try:
         data_dict[key]['ratio_from_person_to_poi'] = float(data_dict[key]['from_this_person_to_poi']
@@ -128,6 +130,7 @@ for key in data_dict.keys():
 features_list.append('ratio_from_person_to_poi')
 features_list.append('ratio_from_poi_to_person')
 
+# Removing features
 features_list.remove('from_this_person_to_poi')
 features_list.remove('from_poi_to_this_person')
 features_list.remove('from_messages')
@@ -159,21 +162,20 @@ print len(features[142])
 print labels[0]
 
 
-
+# Feature Scaling
 from sklearn.preprocessing import MinMaxScaler
 
 scaler = MinMaxScaler()
 features = scaler.fit_transform(features)
 
-
-
+# Feature Selection
 from sklearn.feature_selection import SelectKBest
 
-selection = SelectKBest(k=10)
+selection = SelectKBest(k=12)
 features = selection.fit_transform(features, labels)
 features_selected = selection.get_support(indices=True)
-print selection.scores_
 
+print selection.scores_
 
 new_flist = ['poi']
 
@@ -182,8 +184,6 @@ for index in features_selected:
 
 features_list = new_flist
 print features_list
-
-
 
 ### Task 5: Tune your classifier to achieve better than .3 precision and recall
 ### using our testing script. Check the tester.py script in the final project
@@ -197,8 +197,6 @@ from sklearn.cross_validation import train_test_split
 
 features_train, features_test, labels_train, labels_test = train_test_split(features, labels, test_size=0.3,
                                                                             random_state=42)
-
-
 ### Task 4: Try a varity of classifiers
 ### Please name your classifier clf for easy export below.
 ### Note that if you want to do PCA or other multi-stage operations,
@@ -212,15 +210,14 @@ from sklearn.svm import SVC
 from sklearn.ensemble import AdaBoostClassifier
 from sklearn.ensemble import RandomForestClassifier
 
-# clf = RandomForestClassifier(n_estimators=5, max_depth=10)
+# clf = RandomForestClassifier(n_estimators=5, max_depth = 10)
 # clf = AdaBoostClassifier(algorithm='SAMME', n_estimators=5)
-clf = DecisionTreeClassifier(criterion='entropy', max_depth=2)
-# clf = GaussianNB()
+# clf = DecisionTreeClassifier(criterion='entropy', max_depth=2)
+clf = GaussianNB()
 # clf = SVC(kernel='rbf', C=10)
 
 clf.fit(features_train, labels_train)
 pred = clf.predict(features_test)
-
 
 from sklearn import metrics
 
@@ -228,7 +225,6 @@ print metrics.recall_score(labels_test, pred)
 print metrics.accuracy_score(pred, labels_test)
 print metrics.precision_score(labels_test, pred)
 
-# In[33]:
 
 ### Task 6: Dump your classifier, dataset, and features_list so anyone can
 ### check your results. You do not need to change anything below, but make sure
